@@ -49,7 +49,7 @@ sum(subset(drought_bu, drought_bu$ACRES <= 2 | drought_bu$NO_TREE == 1)$NO_TREE)
 sum(na.omit(drought_bu$NO_TREE))
 
 ### Crop drought data to extent of Ramirez data 
-# drought <- crop(drought, extent(CR_mort)) # *****comment out this step for running on the entire drought data set*****
+drought <- crop(drought, extent(CR_mort)) # *****comment out this step for running on the entire drought data set*****
 
 ### Identify species in LEMMA
 spp <- LEMMA@data@attributes[[1]][,"TREEPLBA"]
@@ -253,10 +253,10 @@ qplot(result.lemma.p$D_BM_kg, geom = "histogram")
 if( Sys.info()['sysname'] == "Windows" ) {
   setwd("C:/Users/Carmen/Box Sync/EPIC-Biomass/R Results")
 } else {
-  setwd("~/Documents/Box Sync/EPIC-Biomass/R Results")
+  setwd("~/Documents/Box Sync/EPIC-Biomass/")
 }
 
-write.csv(results.lemma.p, file = "LEMMA_ADS_AllSpp_AlYrs.csv", row.names=F)
+write.csv(result.lemma.p, file = "LEMMA_ADS_AllSpp_AlYrs.csv", row.names=F)
 
 ### For editing: clear variables in loop
 remove(cell, final, L.in.mat, mat, mat2, merge, pcoords, pmerge, zeros, All_BM_kgha, All_Pol_BM_kgha, Av_BM_TR, D_Pol_BM_kg, 
